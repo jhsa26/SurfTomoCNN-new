@@ -1,0 +1,42 @@
+1Extract_dispersion_ph.ipynb   2Extract_dispersion_gr.ipynb
+
+	Using ./Input/InputPhaseData and ./Input/InputPhaseData to generate ./Output/dispersion_ph and ./Output/dispersion_ph
+	
+	./Output/ includes dispersion curve information of 8-50s for each geographic location.	
+	
+3Extract_RealGausian_map_CNN_Test.ipynb
+	
+	Using ./Output/dispersion_ph(and gr) to generate grids containing both phase and group measurements with the same periods for real test.
+	
+	"./Output/disp_pg_real" is preprocessed test dataset for real prediction.
+
+4Extract_VsLayers_to_syn.ipynb
+	
+	For comparsion, we also extract China continental Vs results of Shen et al. (2016) to computing theoretical dispersion curves.
+	
+	Vs results are stored in ./Vs_GroundTruth.
+
+PlotUncertaintyPhase_Group
+	
+	After run steps of 1-3
+	
+	cd ./PlotUncertaintyPhase_Group, then plot spatial distribution of dispersion measurements and corresponding uncertainties.
+	
+MainSmoothResults.m
+
+	this script is used to smooth Vs distribution of each depth slice extracted by "4Extract_VsLayers_to_syn.ipynb" using krig_interp.m.
+
+
+Note:
+	Before you run all scripts, you should prepare for running environment. You shoud install "Anaconda3" and "Basemap".
+	
+	Basemap   #  https://matplotlib.org/basemap/users/installing.html
+	Anaconda3 #  https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/ # for chinese 
+
+By Jing Hu
+Date 2020-11-21 @ustc
+Email jhsa26@163.com
+
+
+	
+	

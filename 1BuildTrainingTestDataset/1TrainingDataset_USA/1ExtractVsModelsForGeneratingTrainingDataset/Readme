@@ -1,0 +1,11 @@
+
+  ./Extract_VsLayers_to_syn.ipynb is used to extract vs models from USA 
+
+of Shen et al. (2013). Extracted Vs models are further used to calculate
+
+synthetic dispersion curves at specific period range.
+
+
+usage:
+
+    jupyter-notebook ./Extract_VsLayers_to_syn.ipynb

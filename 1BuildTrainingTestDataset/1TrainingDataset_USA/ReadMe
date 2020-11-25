@@ -1,0 +1,67 @@
+	This program is used to Vs models from previous studies to generate training dataset.
+
+Here, we collect Vs models of western USA from Shen et al. (2013) to calculating theoretical
+
+dispersion curves via CPS package (surf96).
+ 
+1. Extract Vs models at depths of 0-150km with each layer thickness of 0.5km.
+
+	cd ./1ExtractVsModelsForGeneratingTrainingDataset
+	
+	jupyter-notebook Extract_VsLayers_to_syn.ipynb	
+	
+2. Calculate theoretical dispsersion curves using Vs models from step1.
+
+	cd ./2GenerateTrainingDataset
+	
+	cd ./0.5km # the layer thickness is 0.5km
+    
+    cd ./src # 
+    
+    gfortran -o surfdisp surfdisp_main.f surfdisp96.f #to complie surf96 
+
+    cp surfdisp ../surfdisp # copy program to ../
+
+    - get_rho.m get_vp.m 
+
+        Relationship among Vs, Vp and density from Shen et al. (2013)
+    
+    - get_rho_vp_cf.m
+        
+        Relationship among Vs, Vp and density from master thesis of Fei Chen (陈飞)
+    
+    - plotVsVpmdl_Hermman.m 
+        
+        Show comparisons of synthetic dispersion curves and observed dispersion curves and corresponding velocity used for forward calculation.
+
+    - surf96.f and surf96_main.f
+
+        the maximum layers you used to do forward calculation must be less than 800.
+    
+        If your computer memeory is limited, you can modify "NL" and "NLAY" in surfdisp.f and surfdisp_main.f
+        
+        surfdisp96.f is based on CPS soft package. Huajian Yao modified this file. The default layer number is 50.  
+
+    cd ../
+    
+    ShenWeiSen_syn_disp.m # run this matlab script to calculate synthetic dispersion curves.
+
+    - disp_out and vs_out
+        
+        ./disp_out/1_20.5_106.5.txt format (period,phase_vel,group_vel)
+
+            1_20.5_106.5 (perturbation id, latitude, longitude), here we donot use gaussian perturbation.
+    
+            You can perturb your models by adding gaussian perturbation into reference models to augment your training dataset.
+
+        ./vs_out/1_20.5_106.5.txt format (depth,vs)
+    
+    Furthre, you use ./2GenerateTrainingDataset/0.5km/Make_gaussian_map.ipynb to generate phase (and group) gaussian map for CNN input during training.
+
+        - you must have anaconda3.4,
+
+    We finally obtain disp_combine_gaussian_map and vs_syn
+
+By Jing Hu 
+Date 2020-11-22 @ ustc
+Email jhsa920@163.com

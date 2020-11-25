@@ -1,0 +1,9 @@
+python ./extract_cnnResults_usa.py # to construct each depth slice using vs_out produced by ../Main_Predict.py, for usa training dataset
+ 
+python ./extract_cnnResults_usa.py # to construct each depth slice using vs_out produced by ../Main_Predict.py, for usa-tibet training dataset
+
+# use this command to select points within "Cina continental" 
+awk '{print $3,$2}' ./ponits.txt | gmt select  -FCN-border-L1.dat  -fg > select.point
+
+
+

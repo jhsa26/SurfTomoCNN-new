@@ -1,0 +1,3 @@
+python run_plot.py # plot Vs Map
+python Plott_RMS_histgram.py # plot historgam of RMS
+bash ./plotSurfaceRMSDistribution.sh # plot rms MAP
