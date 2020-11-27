@@ -91,6 +91,9 @@ See readme to run some scripts to plot results.
 Left to right: Test1 (usa data as training dataset), Test2 (usa-tibet as training dataset), Shen et al. (2016)
 
 
+# Reference
+- Hu, J., Qiu, H., Zhang, H., & Ben-Zion, Y. (2020). Using Deep Learning to Derive Shear- Wave Velocity Models from Surface-Wave Dispersion Data. Seismological Research Letters, 91(3), 1738-1751.
+
 By Jing Hu
 
 Date 2020-11-24
