@@ -88,7 +88,7 @@ copy layers_vs_usa and layers_vs_usa_tibet to `../3GMT_plotResults/`
 
 See readme to run some scripts to plot results.
 
-![Traing loss](./3GMT_plotResults/Figures/cnn_40km.png)
+![Training loss](./3GMT_plotResults/Figures/cnn_40km.png)
 
 Left to right: Test1 (usa data as training dataset), Test2 (usa-tibet data as training dataset), Shen et al. (2016)
 
