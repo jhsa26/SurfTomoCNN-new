@@ -81,8 +81,12 @@ def test(epoch, model, option,validDataset,loss_fn=nn.MSELoss()):
         rms = rms + np.sqrt(np.power(res, 2).sum() / res.size)
         if option.plot:
             if batch_i % 4 is 0:
-                select_one=np.random.randint(0,option.batch_size)
+                num_vs=vel_syn.shape[0]
+                select_one=np.random.randint(0,num_vs)
                 vel_syn=vel_syn[select_one,:];vel_pred=vel_pred[select_one,:]
+                
+                #select_one=np.random.randint(0,option.batch_size)  # bug here
+                #vel_syn=vel_syn[select_one,:];vel_pred=vel_pred[select_one,:]
                 plt.plot(vel_syn,  np.arange(0, len(vel_syn),1)*0.5, '-.', color='red')
                 plt.plot(vel_pred, np.arange(0, len(vel_pred),1)*0.5, '-', color='green')
                 plt.title('True')
