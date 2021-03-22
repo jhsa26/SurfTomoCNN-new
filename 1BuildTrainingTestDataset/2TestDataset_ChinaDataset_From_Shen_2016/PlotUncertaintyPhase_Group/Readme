@@ -1,3 +1,12 @@
+Before run scripts, you should have china topography data. you can download china topography and tectonic data from httpss://gmt-china.org/data
+#######  prepare for topography dataset and tectonic dataset  ##########
+wget https://gmt-china.org/data/CN-border-L1.dat
+wget https://gmt-china.org/data/China_tectonic.dat
+mkdir -p  ~/DataSet/China_data
+mv CN-border-L1.dat ~/DataSet/China_data/
+mv China_tectonic.dat ~/DataSet/China_data/China_tectonic.dat_new
+#################################
+
 First, you should run ../3Extract_RealGausian_map_2DCNN_Test.ipynb to obtain ../Output/disp_pg_real 
 
 	
@@ -8,9 +17,8 @@ Second, run ./ExtractPhaseGroupVelocityForEachPeriod.ipynb to get each period ma
 Third, run ./plotGroupUn.sh ./plotPhaseUn.sh ./plotGroupVs.sh ./plotPhaseVs.sh 
 
 example:
-
 bash ./plotGroupUn.sh 10  # plot group velocity uncertainty at 10s.
-
+bash ./plotGroupVs.sh 10 2.5/3.5 # plot group velocity at 10s with a cpt range of 2.5 km/s to 3.5km/s.  # see the script $1 and $2 for details.
 Finally, cd ./Figs; bash combine.sh # combine all plots into one plot.
 
 Filename.txt includes 3260 points for comparison.
